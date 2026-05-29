@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom"
 
-import Dashboard from "./pages/Dashboard"
+import Dashboard from "./pages/DashBoard"
 import History from "./pages/History"
 import SoilGuide from "./pages/SoilGuide"
 import ArduinoSetup from "./pages/ArduinoSetup"
