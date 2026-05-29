@@ -13,7 +13,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<DashBoard />} />
         <Route path="/history" element={<History />} />
         <Route path="/soil-guide" element={<SoilGuide />} />
         <Route path="/arduino" element={<ArduinoSetup />} />
