@@ -1,4 +1,4 @@
-import Sidebar from "../components/Sidebar"
+
 import Topbar from "../components/Topbar"
 import Card from "../components/Card"
 
@@ -12,7 +12,7 @@ export default function ArduinoSetup() {
         color: "white",
       }}
     >
-      <Sidebar />
+      
 
       <div style={{ padding: "35px", flex: 1 }}>
         <Topbar
