@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getSensorData, getEvents } from "../services/api";
+
 
 export interface HistoryPoint {
   time: string;
@@ -27,7 +28,7 @@ export default function useFarmData() {
     humidity: 65,
     pump: false,
   });
-
+  const alertShown = useRef(false);
   const [history, setHistory] = useState<HistoryPoint[]>([
     {
       time: new Date().toLocaleTimeString([], {
@@ -57,6 +58,14 @@ export default function useFarmData() {
         const eventList = await getEvents();
   
         setFarmData(sensor);
+        if (sensor.moisture < 30) {
+            if (!alertShown.current) {
+              alert("⚠️ Warning! Soil moisture is critically low. Please irrigate the field.");
+              alertShown.current = true;
+            }
+          } else {
+            alertShown.current = false;
+          }
         setEvents(eventList);
   
         const currentTime = new Date().toLocaleTimeString([], {
